@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script type="module" src="app.js"></script>
     <title>TO-DO List</title>
 </head>
 <body>
     <main>
         <div id="container">
-            <div id="header">
+            <div class="header">
                 <h1>Tasks</h1>
             </div>
             <div id="options_container">
@@ -19,37 +20,40 @@
                     <button id="checked_tasks_button"><img src="assets/check.svg"></button>
                 </div>
                 <div id="add_button_container">
-                    <button id="add_task_button">+</button>
+                    <button id="add_task_button"><img src="assets/add.svg" alt=""></button>
                 </div>
             </div>
             <div id="task_container">
-                <div class="task">
-                    <div class="task_info">
-
-                        <input type="checkbox">
-                        <p>Walk outside</p>
-                    </div>
-                    <button class="info_button">></button>
-                </div>
-                <div class="task">
-                    <div class="task_info">
-                        <input  type="checkbox">
-                        <p>Bake a cake</p>
-
-                    </div>
-                    <button class="info_button">></button>
-                </div>
-                <div class="task">
-                    <div class="task_info">
-                        <input type="checkbox">
-                        <p>Buy a coffee</p>
-
-                    </div>
-                    <button class="info_button">></button>
-                </div>
+                <!-- Here are the tasks-->
             </div>
         </div>
     </main>
+    <div id="add_task_modal" class="hidden">
+        <div id="add_task_container">
+            <div class="header">
+                <h1>Add Task</h1>
+            </div>
+            <div id="info">
+                <div id="title_field">
+                    <label for="title">Title</label>
+                    <input  id="title" type="text">
+
+                </div>
+                <div id="description_field">
+                    <textarea id="description" placeholder="Insert description here"></textarea>
+
+                </div>
+
+            </div>
+            <div id="modal_actions">
+                <button id="cancel_button">Cancel</button>
+                <button id="accept_button">Accept</button>
+                
+
+            </div>
+        </div>
+    </div>
+    
     
 </body>
 </html>

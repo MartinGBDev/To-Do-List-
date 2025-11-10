@@ -20,6 +20,7 @@
 *{
     margin: 0px;
     padding: 0px;
+    font-family: sans-serif;
 }
 
 button{
@@ -40,8 +41,10 @@ button{
     font-size: 1.5rem;
     border-radius: 50%;
 }
-#filter_container button:active{
-    border-bottom: solid 1px var(--color-accent-blue);
+
+#filter_container button:focus{
+    border-bottom: solid 3px var(--color-accent-blue);
+
 }
 html, body{
     display: flex;
@@ -62,7 +65,7 @@ body{
     border-radius: 10px;
     
 }
-#header{
+.header{
     display: flex;
     background-color:rgb(155, 150, 224);
     padding: var(--spacing-xl);
@@ -78,6 +81,7 @@ body{
     justify-content: space-between;
     padding-right: var(--spacing-xl);
     flex: 1;
+    
 }
 #options_container button{
     height: 50px;
@@ -118,3 +122,89 @@ body{
 }
 
 
+#add_task_modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#add_task_modal.hidden {
+    display: none;
+}
+
+#add_task_container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    border: solid 1px var(--color-border);
+    border-radius: 0.5rem;
+    background-color: var(--color-background);
+    min-width: 400px;
+    
+    
+    
+    
+}
+#info{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    color: var(--color-text-secondary);
+
+}
+
+#title_field{
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-xs);
+}
+#title_field input{
+    width: 80%;
+    border: transparent;
+    border-bottom: solid 1px var(--color-accent-blue);
+    
+}
+#title_field input:focus{
+    outline: none;
+    color: var(--color-text-primary);
+}
+#description_field{
+    display: flex;
+    flex: 1;
+}
+#description_field textarea{
+    width: 80%;
+    height: 3rem;
+    resize: none;
+    padding: var(--spacing-sm);
+    border-color: var(--color-accent-blue);
+    color: var(--color-text-primary);
+
+
+}
+#description_field textarea{
+    outline: none;
+}
+#modal_actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    font-weight: bold;
+    gap: var(--spacing-md);
+    padding-right:var(--spacing-md) ;
+}
+#modal_actions button{
+    color: var(--color-text-white);
+    background-color: var(--color-accent-blue);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 0.25rem;
+}
