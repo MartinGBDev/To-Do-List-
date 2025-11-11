@@ -60,10 +60,9 @@ body{
     min-width: 400px;
     display: flex;
     flex-direction: column;
-    flex: 1;
     border: solid 1px var(--color-border);
     border-radius: 10px;
-    
+    max-height: 400px;    
 }
 .header{
     display: flex;
@@ -106,6 +105,7 @@ body{
     flex-grow: 3;
 }
 .task{
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;

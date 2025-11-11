@@ -1,6 +1,4 @@
-export const tasks = [
-    
-];
+export const tasks = [];
 
 export function createTask () {
     /**
@@ -13,11 +11,12 @@ export function createTask () {
     const description = document.getElementById("description");
     const descriptionValue = description.value;
 
-    const task ={id:Date.now,title:titleValue,description:descriptionValue,checked:false}
+    const task ={id:"task_" + Date.now,title:titleValue,description:descriptionValue,checked:false}
 
     tasks.push(task);
     createTaskContainer(task);
     hideAddTaskModal();
+    
         
     
 }
@@ -25,7 +24,7 @@ export function createTask () {
 export function createTaskContainer(task){
     const taskE = document.createElement("div");
     taskE.className = "task";
-    taskE.id = "task_" + task.id;
+    taskE.id = task.id;
 
     const taskInfoE = document.createElement("div");
     taskInfoE.className = "task_info";
@@ -42,6 +41,7 @@ export function createTaskContainer(task){
 
     const infoButtonE = document.createElement("button");
     infoButtonE.className = "info_button";
+    infoButtonE.id = "button_" + taskE.id;
     
     const img = document.createElement("img");
     img.src = "assets/right_arrow.svg";
@@ -59,4 +59,31 @@ export function hideAddTaskModal(){
 export function showAddTaskModal(){
     document.getElementById("add_task_modal").classList.remove("hidden");
 
+}
+export function refreshCheckedTasks(){
+    const taskContainer = document.getElementById("task_container");
+    taskContainer.innerHTML = "";
+    const taskChecked = tasks.filter(task => task.checked === true);
+    for(let task of taskChecked)
+        createTaskContainer(task);
+}
+export function loadSavedTasks(){
+    for(let task of tasks){
+        task.className = "task";
+        createTaskContainer(task);
+        
+    }
+}
+export function refreshUncheckedTasks(){
+     const taskContainer = document.getElementById("task_container");
+     taskContainer.innerHTML = "";
+     const taskUnchecked = tasks.filter(task => task.checked === false);
+     for(let task of taskUnchecked)
+        createTaskContainer(task);
+}
+export function refreshAllTasks(){
+    const taskContainer = document.getElementById("task_container");
+     taskContainer.innerHTML = "";
+     for(let task of tasks)
+        createTaskContainer(task);
 }
