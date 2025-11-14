@@ -1,7 +1,11 @@
 
 import { createTask, hideAddTaskModal, loadSavedTasks, refreshAllTasks, refreshCheckedTasks, refreshUncheckedTasks, showAddTaskModal, tasks } from "./todo.js";
 document.body.onload = () => {
-    loadSavedTasks()
+    loadSavedTasks();
+
+    
+        
+
     const addButton = document.getElementById("add_task_button");
     addButton.addEventListener("click",showAddTaskModal);
 

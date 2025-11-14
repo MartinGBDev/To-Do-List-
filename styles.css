@@ -60,12 +60,15 @@ body{
     min-width: 400px;
     display: flex;
     flex-direction: column;
-    border: solid 1px var(--color-border);
+    border: solid 3px var(--color-border);
     border-radius: 10px;
-    max-height: 400px;    
+        
+
 }
 .header{
     display: flex;
+    flex-grow: 3;
+    flex-basis: 0;
     background-color:rgb(155, 150, 224);
     padding: var(--spacing-xl);
     color: var(--color-text-white);
@@ -76,6 +79,8 @@ body{
 }
 #options_container{
     display: flex;
+    flex-grow: 1;
+    flex-basis: 0;
     flex-direction: row;
     justify-content: space-between;
     padding-right: var(--spacing-xl);
@@ -99,10 +104,21 @@ body{
     
 }
 
+
 #task_container{
     display: flex;
+    flex-grow: 4;
+    align-items: stretch;
     flex-direction: column;
     flex-grow: 3;
+    overflow-y: auto;
+
+}
+#task_container.empty{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: var(--color-text-secondary);
 }
 .task{
     

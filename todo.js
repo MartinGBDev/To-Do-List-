@@ -1,4 +1,5 @@
-export const tasks = [];
+export const tasks = [
+    ];
 
 export function createTask () {
     /**
@@ -11,7 +12,7 @@ export function createTask () {
     const description = document.getElementById("description");
     const descriptionValue = description.value;
 
-    const task ={id:"task_" + Date.now,title:titleValue,description:descriptionValue,checked:false}
+    const task ={id:"task_" + Date.now(),title:titleValue,description:descriptionValue,checked:false}
 
     tasks.push(task);
     createTaskContainer(task);
@@ -46,11 +47,18 @@ export function createTaskContainer(task){
     const img = document.createElement("img");
     img.src = "assets/right_arrow.svg";
     infoButtonE.appendChild(img);
+
     
     taskE.appendChild(infoButtonE);
+    const taskContainer = document.getElementById("task_container");
+    if(tasks.length > 0){
+        taskContainer.removeChild(document.getElementById("empty"));
+        taskContainer.className = ""
+    }
+    
 
-
-    document.getElementById("task_container").appendChild(taskE);
+    
+    taskContainer.appendChild(taskE);
 }
 export function hideAddTaskModal(){
     document.getElementById("add_task_modal").className = "hidden";
@@ -68,10 +76,21 @@ export function refreshCheckedTasks(){
         createTaskContainer(task);
 }
 export function loadSavedTasks(){
-    for(let task of tasks){
-        task.className = "task";
-        createTaskContainer(task);
-        
+    if(tasks.length === 0){
+        const p = document.createElement("p");
+        p.textContent = "There is no tasks";
+        p.id = "empty";
+        const taskContainer = document.getElementById("task_container");
+        console.log("LLega")
+        taskContainer.appendChild(p);
+    }
+    else{
+        for(let task of tasks){
+            task.className = "task";
+            createTaskContainer(task);
+            
+        }
+
     }
 }
 export function refreshUncheckedTasks(){
